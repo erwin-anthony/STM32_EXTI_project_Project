@@ -6,9 +6,10 @@ Library/
 #使用 路径+文件名 的方式是忽略特定文件
 User/stm32f10x_conf.h
 Listings/startup_stm32f10x_hd.lst
-STM32_EXTI_project.uvoptx
 DebugConfig/Target_1_STM32F103VE.dbgconf
-STM32_EXTI_project.uvguix.Anthony_
+#使用/* + 文件名是忽略根目录下的特定文件
+/*.uvoptx
+/*.uvguix.Anthony_
 #使用/*是指该文件夹下的所有文件(不包括文件夹本身)
 Start/*
 #在保留上述文件夹的同时。使用！+文件路径+文件名是指取消忽略该文件
