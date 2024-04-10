@@ -5,31 +5,31 @@
 //为了下面中断优先级的NVIC配置，建议函数EXTI_NVIC_Config（）放前面
 static void EXTI_NVIC_Config(void){
 	//声明结构体变量
-	NVIC_InitTypeDef NVIC_InitStruct_EXTI_KEY1;
-	NVIC_InitTypeDef NVIC_InitStruct_EXTI_KEY2;
+	NVIC_InitTypeDef NVIC_InitStructure_EXTI_KEY1;
+	NVIC_InitTypeDef NVIC_InitStructure_EXTI_KEY2;
 	//配置中断优先级分组
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_KEY1);
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_KEY2);
 	//配置NVIC寄存器
 	//IRQ是中断源。Tip:后几位使用不同（EXTI9_5_IRQn或者EXTI15_10_IRQn）
-	NVIC_InitStruct_EXTI_KEY1.NVIC_IRQChannel = NVIC_IRQChannel_KEY1;
-	NVIC_InitStruct_EXTI_KEY2.NVIC_IRQChannel = NVIC_IRQChannel_KEY2;
+	NVIC_InitStructure_EXTI_KEY1.NVIC_IRQChannel = NVIC_IRQChannel_KEY1;
+	NVIC_InitStructure_EXTI_KEY2.NVIC_IRQChannel = NVIC_IRQChannel_KEY2;
 	
 	//抢占优先级（数字越小，优先级越高）
-	NVIC_InitStruct_EXTI_KEY1.NVIC_IRQChannelPreemptionPriority = NVIC_IRQChannelPreemptionPriority_KEY1;
-	NVIC_InitStruct_EXTI_KEY2.NVIC_IRQChannelPreemptionPriority = NVIC_IRQChannelPreemptionPriority_KEY2;
+	NVIC_InitStructure_EXTI_KEY1.NVIC_IRQChannelPreemptionPriority = NVIC_IRQChannelPreemptionPriority_KEY1;
+	NVIC_InitStructure_EXTI_KEY2.NVIC_IRQChannelPreemptionPriority = NVIC_IRQChannelPreemptionPriority_KEY2;
 	
 	//子优先级
-	NVIC_InitStruct_EXTI_KEY1.NVIC_IRQChannelSubPriority = NVIC_IRQChannelSubPriority_KEY1;
-	NVIC_InitStruct_EXTI_KEY2.NVIC_IRQChannelSubPriority = NVIC_IRQChannelSubPriority_KEY2;
+	NVIC_InitStructure_EXTI_KEY1.NVIC_IRQChannelSubPriority = NVIC_IRQChannelSubPriority_KEY1;
+	NVIC_InitStructure_EXTI_KEY2.NVIC_IRQChannelSubPriority = NVIC_IRQChannelSubPriority_KEY2;
 	//NVIC使能
-	NVIC_InitStruct_EXTI_KEY1.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStruct_EXTI_KEY2.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStructure_EXTI_KEY1.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStructure_EXTI_KEY2.NVIC_IRQChannelCmd = ENABLE;
 	
 	
 	//使用库函数初始化NVIC结构体
-	NVIC_Init(&NVIC_InitStruct_EXTI_KEY1);
-	NVIC_Init(&NVIC_InitStruct_EXTI_KEY2);
+	NVIC_Init(&NVIC_InitStructure_EXTI_KEY1);
+	NVIC_Init(&NVIC_InitStructure_EXTI_KEY2);
 	
 
 }
